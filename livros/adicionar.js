@@ -1,8 +1,8 @@
-const {baralhos} = require('../data');
+const {livros} = require('../data');
 
-function criarBaralho(req, res) {
+function adicionarLivro(req, res) {
     console.log(req.body);
-    const novoBaralho = {
+    const novoLivro = {
         id: baralhos.length + 1,
         nome:req.body.titulo
     };
