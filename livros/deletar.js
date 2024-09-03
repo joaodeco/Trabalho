@@ -1,25 +1,19 @@
-const { baralhos, flashcards} = require('../data')
+const { livros} = require('../data')
 
-const deletarBaralho = (req, res) => {
+const deletarLivro = (req, res) => {
     const { id } = req.params;
-    const index = baralhos.findIndex((b) => b.id == id);
+    const index = livros.findIndex((b) => b.id == id);
     
     if (index === -1) {
-    return res.status(404).send('Baralho não encontrado!');
+    return res.status(404).send('Livro não encontrado!');
     }
     
-    const baralhoDeletado = baralhos.splice(index, 1)[0];
-    
-    flashcards.forEach(flashcard, index => {
-    if (flashcard.baralhoId == id) {
-    flashcards.splice(index, 1);
-    }
-    });
+    const livroDeletado = livros.splice(index, 1)[0];
     
     res.status(200).send({
-    message: 'Baralho deletado com sucesso!',
-    baralho: baralhoDeletado
+    message: 'Livro deletado com sucesso!',
+    livro: livroDeletado
     })
     }
     
-    module.exports = deletarBaralho;
+    module.exports = deletarLivro;

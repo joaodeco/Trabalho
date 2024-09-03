@@ -1,19 +1,19 @@
-const {} = require('../data');
+const {livros} = require('../data');
 
-const atualizarBaralho = (req, res) => {
+const atualizarLivro = (req, res) => {
     const {id} = req.params;
     const novoTitulo = req.body.titulo;
 
-    const baralho = baralhos.find((b) => b.id == id);
+    const livro = livros.find((b) => b.id == id);
 
-    if (!baralho) {
-        return res.status(404).send({message: 'Baralho não encontrado'});
+    if (!livro) {
+        return res.status(404).send({message: 'Livro não encontrado'});
     }
-    baralho.titulo = novoTitulo;
+    livro.titulo = novoTitulo;
     res.status(200).send({
-        message: 'Baralho atualizado.',
-        baralho:baralho
+        message: 'Livro atualizado.',
+        livro:livro
     });
 }
 
-module.exports = atualizarBaralho
+module.exports = atualizarLivro

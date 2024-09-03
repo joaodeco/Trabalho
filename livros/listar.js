@@ -1,7 +1,7 @@
-const {flashcard} = require('../data');
+const {livros} = require('../data');
 
-const listarFlashcard = (req, res) => {
-    res.status(200).send(flashcard);
+const listarLivros = (req, res) => {
+    res.status(200).send(livros);
 }
 
-module.exports = listarFlashcard;
+module.exports = listarLivros;
